@@ -1,17 +1,11 @@
 package adapters;
-
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
-
 import com.bob.foodrecipes.fragments.ViewDirectionsFragment;
 import com.bob.foodrecipes.fragments.ViewIngredientsFragment;
-
 import models.Recipe;
 
-public class ViewPagerAdapter{}
-
-/*
 public class ViewPagerAdapter extends FragmentStatePagerAdapter {
 
     private static final int TAB_COUNT = 2;
@@ -46,4 +40,4 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
     public CharSequence getPageTitle(int position) {
         return tabTitles[position];
     }
-}*/
+}

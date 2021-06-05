@@ -1,14 +1,7 @@
 package com.bob.foodrecipes;
-
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
-import android.os.Bundle;
-
-public class ToolbarActivity extends AppCompatActivity {
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_toolbar);
-    }
+public abstract class ToolbarActivity extends AppCompatActivity {
+    protected Toolbar mToolbar;
 }
