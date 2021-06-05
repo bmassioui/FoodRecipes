@@ -1,66 +1,155 @@
 package com.bob.foodrecipes.fragments;
 
+import android.app.Activity;
 import android.os.Bundle;
 
+import androidx.annotation.LayoutRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.bob.foodrecipes.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link CategorizedFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class CategorizedFragment extends Fragment {
+import java.util.ArrayList;
+import java.util.List;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+import adapters.DatabaseAdapter;
+import adapters.RecipeAdapter;
+import models.Recipe;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+public abstract class CategorizedFragment extends Fragment {
+
+    private CategorizedFragmentListener categorizedFragmentListener;
+    protected RecyclerView recipeRecyclerView;
+    private TextView emptyView;
+    protected RecipeAdapter recipeAdapter;
+    protected DatabaseAdapter databaseAdapter;
+    protected String currentCategory;
+    protected List<Recipe> recipes;
 
     public CategorizedFragment() {
         // Required empty public constructor
+        recipes = new ArrayList<>();
+        databaseAdapter = DatabaseAdapter.getInstance(getActivity());
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment CategorizedFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static CategorizedFragment newInstance(String param1, String param2) {
-        CategorizedFragment fragment = new CategorizedFragment();
+    public static Fragment newInstance(String category) {
+        Fragment fragment;
+        switch (category) {
+            case "American":
+                fragment = new AmericanFragment();
+                break;
+            case "Asian":
+                fragment = new AsianFragment();
+                break;
+            case "European":
+                fragment = new EuropeanFragment();
+                break;
+            case "Mediterranean":
+                fragment = new MediterraneanFragment();
+                break;
+            default:
+                fragment = new VeganFragment();
+                break;
+        }
+
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        args.putString("category", category);
         fragment.setArguments(args);
+
         return fragment;
     }
 
+    @Nullable
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View rootView = inflater.inflate(getFragmentLayout(), container, false);
+
+        Bundle args = getArguments();
+        currentCategory = args.getString("category");
+
+        recipeRecyclerView = rootView.findViewById(R.id.recyclerView);
+        emptyView = rootView.findViewById(R.id.empty_view);
+        recipeRecyclerView.setHasFixedSize(true);
+        recipeRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        return rootView;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        refresh();
+    }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        try {
+            categorizedFragmentListener = (CategorizedFragmentListener) activity;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(activity.toString()
+                    + " must implement CategorizedFragmentListener");
         }
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_categorized, container, false);
+    public void onDetach() {
+        super.onDetach();
+        categorizedFragmentListener = null;
+    }
+
+    public void refresh() {
+        recipes = databaseAdapter.getAllRecipesByCategory(currentCategory);
+        toggleEmptyView();
+        recipeAdapter = new RecipeAdapter(getActivity(), recipes);
+        recipeAdapter.setRecipeListener(new RecipeAdapter.RecipeListener() {
+            @Override
+            public void onShowRecipe(Recipe recipe, Pair<View, String>[] pairs) {
+                categorizedFragmentListener.onShowRecipe(recipe, pairs);
+            }
+
+            @Override
+            public void onEditRecipe(Recipe recipe) {
+                categorizedFragmentListener.onEditRecipe(recipe);
+            }
+
+            @Override
+            public void onDeleteRecipe(long recipeId) {
+                categorizedFragmentListener.onDeleteRecipe(recipeId);
+                refresh();
+            }
+        });
+        recipeRecyclerView.setAdapter(recipeAdapter);
+    }
+
+    private void toggleEmptyView() {
+        if (recipes.size() == 0) {
+            emptyView.setVisibility(View.VISIBLE);
+            recipeRecyclerView.setVisibility(View.GONE);
+        } else {
+            emptyView.setVisibility(View.GONE);
+            recipeRecyclerView.setVisibility(View.VISIBLE);
+        }
+    }
+
+    protected abstract @LayoutRes
+    int getFragmentLayout();
+
+    public interface CategorizedFragmentListener {
+        void onShowRecipe(Recipe recipe, Pair<View, String>[] pairs);
+
+        void onEditRecipe(Recipe recipe);
+
+        void onDeleteRecipe(long recipeId);
     }
 }

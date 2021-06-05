@@ -1,66 +1,132 @@
 package com.bob.foodrecipes.fragments;
-
+import android.app.Activity;
+import android.net.Uri;
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Toast;
 import com.bob.foodrecipes.R;
+import java.io.File;
+import models.Recipe;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link RecipeImageFragment#newInstance} factory method to
- * create an instance of this fragment.
  */
-public class RecipeImageFragment extends Fragment {
+public class RecipeImageFragment extends NavigableFragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private static final int MAX_DESCRIPTION_LENGTH = 200;
+    private String currentRecipeImage;
+    private ImageListener mListener;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private ImageView recipeImage;
+    private Button selectImageBtn;
+    private EditText recipeName;
+    private EditText recipeDescription;
 
-    public RecipeImageFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment RecipeImageFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static RecipeImageFragment newInstance(String param1, String param2) {
+    public static RecipeImageFragment newInstance(Recipe recipe) {
         RecipeImageFragment fragment = new RecipeImageFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+        Bundle args = new Bundle();
+        if (recipe.getDescription() != null) {
+            args.putString("imagePath", recipe.getImagePath());
+            args.putString("description", recipe.getDescription());
+            args.putString("name", recipe.getName());
+            fragment.setArguments(args);
         }
+
+        return fragment;
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_recipe_image, container, false);
+        View view = inflater.inflate(R.layout.fragment_recipe_image, container, false);
+        recipeImage = view.findViewById(R.id.recipe_image);
+        selectImageBtn = view.findViewById(R.id.choose_image);
+        recipeDescription = view.findViewById(R.id.recipe_description);
+        recipeName = view.findViewById(R.id.recipe_name);
+
+        Bundle args = getArguments();
+        if (args != null) {
+            String imagePath = args.getString("imagePath");
+            String description = args.getString("description");
+            String name = args.getString("name");
+            onImageSelected(imagePath);
+            recipeDescription.setText(description);
+            recipeName.setText(name);
+        }
+
+        selectImageBtn.setOnClickListener(v -> {
+            if (mListener != null)
+                mListener.onSelectImage();
+        });
+
+        return view;
+    }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        try {
+            mListener = (ImageListener) activity;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(activity.toString()
+                    + " must implement ImageListener");
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        mListener = null;
+    }
+
+    @Override
+    public void onNext() {
+        if (currentRecipeImage == null) {
+            Toast.makeText(getActivity(), "Please choose an image for this recipe.", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        String name = recipeName.getText().toString();
+        String description = recipeDescription.getText().toString();
+
+        if (name.isEmpty()) {
+            Toast.makeText(getActivity(), "Please specify a name for this recipe.", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        if (description.isEmpty()) {
+            Toast.makeText(getActivity(), "Please type in a description for this recipe.", Toast.LENGTH_LONG).show();
+            return;
+        } else {
+            if (description.length() > 200) {
+                Toast.makeText(getActivity(), "Your description shouldn't exceed " + MAX_DESCRIPTION_LENGTH + " characters.", Toast.LENGTH_LONG).show();
+                return;
+            }
+        }
+
+        if (mListener != null)
+            mListener.navigateToIngredientsFragment(name, description);
+    }
+
+    public void onImageSelected(String imagePath) {
+        currentRecipeImage = imagePath;
+        if (!currentRecipeImage.isEmpty()) {
+            recipeImage.setImageURI(Uri.fromFile(new File(currentRecipeImage)));
+            selectImageBtn.setText("Update recipe image");
+        }
+    }
+
+    public interface ImageListener {
+        void onSelectImage();
+
+        void navigateToIngredientsFragment(String name, String description);
     }
 }
