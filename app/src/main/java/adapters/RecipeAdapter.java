@@ -20,10 +20,6 @@ import java.util.List;
 
 import models.Recipe;
 
-public class RecipeAdapter {
-}
-
-/*
 public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeViewHolder> {
 
     private List<Recipe> recipeList;
@@ -124,4 +120,3 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.RecipeView
         void onDeleteRecipe(long recipeId);
     }
 }
-*/

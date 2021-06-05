@@ -15,11 +15,6 @@ import java.util.List;
 
 import models.Ingredient;
 
-public class IngredientAdapter {
-}
-
-/*
-
 public class IngredientAdapter extends RecyclerView.Adapter<IngredientAdapter.IngredientViewHolder> {
 
     private List<Ingredient> ingredientList;
@@ -92,4 +87,4 @@ public class IngredientAdapter extends RecyclerView.Adapter<IngredientAdapter.In
     public interface IngredientListener {
         void onDeleteIngredient(int position);
     }
-}*/
+}

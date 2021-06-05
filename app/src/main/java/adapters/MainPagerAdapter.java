@@ -4,10 +4,15 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
-public class MainPagerAdapter {
-}
-/*
+import com.bob.foodrecipes.fragments.AmericanFragment;
+import com.bob.foodrecipes.fragments.AsianFragment;
+import com.bob.foodrecipes.fragments.EuropeanFragment;
+import com.bob.foodrecipes.fragments.MediterraneanFragment;
+import com.bob.foodrecipes.fragments.VeganFragment;
 
+public class MainPagerAdapter{}
+
+/*
 public class MainPagerAdapter extends FragmentStatePagerAdapter {
 
     private static final int TAB_COUNT = 5;
@@ -55,6 +60,4 @@ public class MainPagerAdapter extends FragmentStatePagerAdapter {
     public CharSequence getPageTitle(int position) {
         return tabTitles[position];
     }
-}
-
-*/
+}*/

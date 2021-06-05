@@ -15,11 +15,6 @@ import java.util.List;
 
 import models.Direction;
 
-public class DirectionAdapter{
-
-}
-
-/*
 public class DirectionAdapter extends RecyclerView.Adapter<DirectionAdapter.DirectionViewHolder> {
 
     private List<Direction> directionList;
@@ -93,5 +88,3 @@ public class DirectionAdapter extends RecyclerView.Adapter<DirectionAdapter.Dire
         void onDeleteDirection(int position);
     }
 }
-*/
-
