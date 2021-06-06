@@ -1,9 +1,7 @@
 package dao;
-
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-
 import models.User;
 
 public class UserDAO {
@@ -44,8 +42,8 @@ public class UserDAO {
             return new User(
                     cursor.getInt(0),
                     cursor.getString(1),
-                    cursor.getString(3),
-                    cursor.getString(4)
+                    cursor.getString(2),
+                    cursor.getString(3)
             );
         }
 
