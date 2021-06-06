@@ -15,7 +15,6 @@ public class RegisterActivity extends ToolbarActivity {
     private DatabaseAdapter databaseAdapter;
 
     private TextInputLayout mUsername;
-    private TextInputLayout mFullname;
     private TextInputLayout mEmail;
     private TextInputLayout mPassword;
 
@@ -32,7 +31,6 @@ public class RegisterActivity extends ToolbarActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         mUsername = findViewById(R.id.reg_display_name);
-        mFullname = findViewById(R.id.login_fullname);
         mEmail = findViewById(R.id.login_email);
         mPassword = findViewById(R.id.login_password);
     }
@@ -50,11 +48,10 @@ public class RegisterActivity extends ToolbarActivity {
 
     public void onCreateAccountPressed(View view) {
         String username = mUsername.getEditText().getText().toString();
-        String fullname = mFullname.getEditText().getText().toString();
         String email = mEmail.getEditText().getText().toString();
         String password = mPassword.getEditText().getText().toString();
 
-        registerUser(new User(username, fullname, email, password));
+        registerUser(new User(username, email, password));
     }
 
     private void registerUser(User user) {

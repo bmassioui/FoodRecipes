@@ -41,8 +41,7 @@ public class SplashActivity extends AppCompatActivity {
         if (UserPreferences.isFirstRun(this)) {
             UserPreferences.setIsFirstRun(this, false);
 
-            databaseAdapter.addNewUser(new User("testrun",
-                    "test runner", "testrun@recipeapp.com", "password"));
+            databaseAdapter.addNewUser(new User("demo_user", "demo@foodrecipes.com", "pwd123"));
 
             if (ContextCompat.checkSelfPermission(this,
                     Manifest.permission.WRITE_EXTERNAL_STORAGE)

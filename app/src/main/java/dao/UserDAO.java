@@ -17,7 +17,6 @@ public class UserDAO {
     public void insert(User user) {
         ContentValues values = new ContentValues();
         values.put(Config.KEY_USERNAME, user.getUsername());
-        values.put(Config.KEY_FULLNAME, user.getFullname());
         values.put(Config.KEY_EMAIL, user.getEmail());
         values.put(Config.KEY_PASSWORD, user.getPassword());
 
@@ -32,7 +31,7 @@ public class UserDAO {
         try (Cursor cursor = db.query(
                 true,
                 Config.TABLE_NAME,
-                new String[]{Config.KEY_ID, Config.KEY_USERNAME, Config.KEY_FULLNAME, Config.KEY_EMAIL, Config.KEY_PASSWORD},
+                new String[]{Config.KEY_ID, Config.KEY_USERNAME, Config.KEY_EMAIL, Config.KEY_PASSWORD},
                 Config.KEY_EMAIL + "=? AND " + Config.KEY_PASSWORD + "=?",
                 new String[]{email, password},
                 null, null, null, null)) {
@@ -45,7 +44,6 @@ public class UserDAO {
             return new User(
                     cursor.getInt(0),
                     cursor.getString(1),
-                    cursor.getString(2),
                     cursor.getString(3),
                     cursor.getString(4)
             );
@@ -58,7 +56,6 @@ public class UserDAO {
         public static final String TABLE_NAME = "users";
         public static final String KEY_ID = "id";
         public static final String KEY_USERNAME = "username";
-        public static final String KEY_FULLNAME = "fullname";
         public static final String KEY_EMAIL = "email";
         public static final String KEY_PASSWORD = "password";
 
@@ -66,7 +63,6 @@ public class UserDAO {
                 "CREATE TABLE " + TABLE_NAME + " (" +
                         KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                         KEY_USERNAME + " TEXT NOT NULL, " +
-                        KEY_FULLNAME + " TEXT NOT NULL, " +
                         KEY_EMAIL + " TEXT NOT NULL, " +
                         KEY_PASSWORD + " TEXT NOT NULL)";
     }

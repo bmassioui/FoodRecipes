@@ -1,10 +1,8 @@
 package utils;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.util.Log;
-
 import models.User;
 
 public class UserPreferences {
@@ -22,7 +20,6 @@ public class UserPreferences {
                     .edit()
                     .putInt(ID, currentUser.getId())
                     .putString(USERNAME, currentUser.getUsername())
-                    .putString(FULLNAME, currentUser.getFullname())
                     .putString(EMAIL, currentUser.getEmail())
                     .putString(PASSWORD, currentUser.getPassword())
                     .apply();
@@ -40,13 +37,7 @@ public class UserPreferences {
         SharedPreferences sharedPreferences =
                 PreferenceManager.getDefaultSharedPreferences(context);
         if (sharedPreferences.contains(ID)) {
-            return new User(
-                    sharedPreferences.getInt(ID, -1),
-                    sharedPreferences.getString(USERNAME, ""),
-                    sharedPreferences.getString(FULLNAME, ""),
-                    sharedPreferences.getString(EMAIL, ""),
-                    sharedPreferences.getString(PASSWORD, "")
-            );
+            return new User(  sharedPreferences.getInt(ID, -1), sharedPreferences.getString(USERNAME, ""), sharedPreferences.getString(EMAIL, ""),sharedPreferences.getString(PASSWORD, "") );
         }
 
         return null;
