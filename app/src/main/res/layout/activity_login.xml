@@ -13,6 +13,15 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
+    <ImageView
+        android:id="@+id/food_recipes_icon_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/food_recipes_login"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
+        app:layout_constraintTop_toTopOf="@id/login_label" />
+
     <TextView
         android:id="@+id/login_label"
         android:layout_width="match_parent"
@@ -23,8 +32,7 @@
         android:textColor="@android:color/black"
         android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        app:layout_constraintTop_toBottomOf="@+id/food_recipes_icon_id" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/login_email"
