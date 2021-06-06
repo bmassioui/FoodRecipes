@@ -9,7 +9,6 @@ public class UserPreferences {
     private static final String TAG = UserPreferences.class.getSimpleName();
     private static final String ID = "id";
     private static final String USERNAME = "username";
-    private static final String FULLNAME = "fullname";
     private static final String EMAIL = "email";
     private static final String PASSWORD = "password";
     private static final String FIRST_RUN = "firstRun";
@@ -60,7 +59,6 @@ public class UserPreferences {
                 .edit()
                 .remove(ID)
                 .remove(USERNAME)
-                .remove(FULLNAME)
                 .remove(EMAIL)
                 .remove(PASSWORD)
                 .apply();
