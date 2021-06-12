@@ -1,8 +1,9 @@
 package com.bob.foodrecipes.fragments;
+
 import android.app.Activity;
 import android.net.Uri;
 import android.os.Bundle;
-import androidx.fragment.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,8 +11,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import androidx.fragment.app.Fragment;
+
 import com.bob.foodrecipes.R;
+
 import java.io.File;
+
 import models.Recipe;
 
 /**
@@ -117,9 +123,13 @@ public class RecipeImageFragment extends NavigableFragment {
     }
 
     public void onImageSelected(String imagePath) {
-        currentRecipeImage = imagePath;
+         currentRecipeImage = imagePath;
         if (!currentRecipeImage.isEmpty()) {
+
+            Uri Path = Uri.fromFile(new File(currentRecipeImage));
             recipeImage.setImageURI(Uri.fromFile(new File(currentRecipeImage)));
+
+            Log.i("image path", "Path : " + Path);
             selectImageBtn.setText("Update recipe image");
         }
     }
