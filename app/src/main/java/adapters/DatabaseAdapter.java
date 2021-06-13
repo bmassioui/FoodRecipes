@@ -57,8 +57,19 @@ public class DatabaseAdapter {
         return this;
     }
 
-    public boolean signIn(String email, String password) {
-        User currentUser = userDAO.getUserByEmailAndPassword(email, password);
+
+    /**
+     * Try to SigIn via Email/UserName and pwd
+     *
+     * @param loginId either by Email or by UserName
+     * @return bool
+     */
+    public boolean signIn(String loginId, String pwd) {
+        User currentUser = userDAO.getByEmail(loginId, pwd);
+
+        if(currentUser == null)
+            currentUser = userDAO.getByUserName(loginId, pwd);
+
         UserPreferences.saveCurrentUser(mContext, currentUser);
         return currentUser != null;
     }

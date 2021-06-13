@@ -13,8 +13,8 @@ import adapters.DatabaseAdapter;
 
 public class LoginActivity extends ToolbarActivity {
 
-    private TextInputLayout mLoginEmail;
-    private TextInputLayout mLoginPassword;
+    private TextInputLayout mLoginId;
+    private TextInputLayout mPassword;
 
     private DatabaseAdapter databaseAdapter;
 
@@ -29,21 +29,21 @@ public class LoginActivity extends ToolbarActivity {
         setSupportActionBar(toolBar);
         getSupportActionBar().setTitle("Log in to your account");
 
-        mLoginEmail = findViewById(R.id.login_email);
-        mLoginPassword = findViewById(R.id.login_password);
+        mLoginId = findViewById(R.id.login_id);
+        mPassword = findViewById(R.id.login_password);
     }
 
     public void onLoginPressed(View view) {
-        String email = mLoginEmail.getEditText().getText().toString();
-        String password = mLoginPassword.getEditText().getText().toString();
+        String email = mLoginId.getEditText().getText().toString();
+        String password = mPassword.getEditText().getText().toString();
 
         if (!TextUtils.isEmpty(email) || !TextUtils.isEmpty(password)) {
             loginUser(email, password);
         }
     }
 
-    private void loginUser(String email, String password) {
-        boolean status = databaseAdapter.signIn(email, password);
+    private void loginUser(String loginId, String password) {
+        boolean status = databaseAdapter.signIn(loginId, password);
         if (status) {
             Intent intent = new Intent(this, MainActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);

@@ -2,6 +2,7 @@ package dao;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+
 import models.User;
 
 public class UserDAO {
@@ -25,14 +26,28 @@ public class UserDAO {
         return db.insert(Config.TABLE_NAME, null, values);
     }
 
-    public User getUserByEmailAndPassword(String email, String password) {
-        try (Cursor cursor = db.query(
-                true,
-                Config.TABLE_NAME,
-                new String[]{Config.KEY_ID, Config.KEY_USERNAME, Config.KEY_EMAIL, Config.KEY_PASSWORD},
-                Config.KEY_EMAIL + "=? AND " + Config.KEY_PASSWORD + "=?",
-                new String[]{email, password},
-                null, null, null, null)) {
+    /**
+     * Try to get User by Email and Pwd
+     *
+     * @param email user email
+     * @param pwd user pwd
+     * @return User?
+     */
+    public User getByEmail(String email, String pwd){
+        try(Cursor cursor = db.query(true, Config.TABLE_NAME, new String[]{Config.KEY_ID, Config.KEY_USERNAME, Config.KEY_EMAIL, Config.KEY_PASSWORD}, Config.KEY_EMAIL + "=? AND " + Config.KEY_PASSWORD + "=?", new String[]{email, pwd},null, null, null, null)){
+            return extractUserFromCursor(cursor);
+        }
+    }
+
+    /**
+     * Try to get User by UserName and Pwd
+     *
+     * @param userName user username
+     * @param pwd user pwd
+     * @return User?
+     */
+    public User getByUserName(String userName, String pwd){
+        try(Cursor cursor = db.query(true, Config.TABLE_NAME, new String[]{Config.KEY_ID, Config.KEY_USERNAME, Config.KEY_EMAIL, Config.KEY_PASSWORD}, Config.KEY_USERNAME + "=? AND " + Config.KEY_PASSWORD + "=?", new String[]{userName, pwd},null, null, null, null)){
             return extractUserFromCursor(cursor);
         }
     }
