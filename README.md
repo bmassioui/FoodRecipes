@@ -16,7 +16,7 @@ The app uttilizes Material Design.
 - `utils` folder contains snippets of code for various functionalities.
 
 ## Images
-| ![](https://github.com/bouchaib-massioui/FoodRecipes/blob/main/for_readme/welcome.png) | ![](https://github.com/bouchaib-massioui/FoodRecipes/blob/main/for_readme/food_overview.jpg) |
+| ![](https://github.com/bouchaib-massioui/FoodRecipes/blob/main/for_readme/welcome.png) | ![](https://github.com/bouchaib-massioui/FoodRecipes/blob/main/for_readme/recipe_overview.jpg) |
 |:---:|:---:|
 | Welcome page  | Main window - Show food list |
 
@@ -32,13 +32,17 @@ The app uttilizes Material Design.
 |:---:|:---:|
 | The vertical ellipsis icon allows option to create new recipe/sign out | Edit or delete a single recipe |
 
-| ![](https://github.com/bouchaib-massioui/FoodRecipes/blob/main/for_readme/app_shared_menu.jpg) | ![](https://github.com/bouchaib-massioui/FoodRecipes/blob/main/for_readme/item_menu.jpg) |
+| ![](https://github.com/bouchaib-massioui/FoodRecipes/blob/main/for_readme/app_shared_menu.jpg) | ![](https://github.com/bouchaib-massioui/FoodRecipes/blob/main/for_readme/recipe_menu.jpg) |
 |:---:|:---:|
-| Application use a shared menu | Shared item menu |
+| Application use a shared menu | Shared recipe menu |
 
-| ![](https://github.com/bouchaib-massioui/FoodRecipes/blob/main/for_readme/create_new_food.jpg) | ![](https://github.com/bouchaib-massioui/FoodRecipes/blob/main/for_readme/add_ingrediants.jpg) | ![](https://github.com/bouchaib-massioui/FoodRecipes/blob/main/for_readme/add_directions.jpg) | ![](https://github.com/bouchaib-massioui/FoodRecipes/blob/main/for_readme/add_ingrediants.jpg) | ![](https://github.com/bouchaib-massioui/FoodRecipes/blob/main/for_readme/new_item_added.jpg) |
+| ![](https://github.com/bouchaib-massioui/FoodRecipes/blob/main/for_readme/new_recipe.jpg) | ![](https://github.com/bouchaib-massioui/FoodRecipes/blob/main/for_readme/add_ingrediants.jpg) | ![](https://github.com/bouchaib-massioui/FoodRecipes/blob/main/for_readme/add_directions.jpg) | ![](https://github.com/bouchaib-massioui/FoodRecipes/blob/main/for_readme/add_ingrediants.jpg) | ![](https://github.com/bouchaib-massioui/FoodRecipes/blob/main/for_readme/recipe_added.jpg) |
 |:---:|:---:|:---:|:---:|
-| New food | Add ingredients| Add directions| New food has been added|
+| New recipe | Add ingredients| Add directions| New recipe has been added|
+
+| ![](https://github.com/bouchaib-massioui/FoodRecipes/blob/main/for_readme/new_recipe.jpg) | ![](https://github.com/bouchaib-massioui/FoodRecipes/blob/main/for_readme/add_ingrediants.jpg) | ![](https://github.com/bouchaib-massioui/FoodRecipes/blob/main/for_readme/add_directions.jpg) | ![](https://github.com/bouchaib-massioui/FoodRecipes/blob/main/for_readme/add_ingrediants.jpg) |
+|:---:|:---:|:---:||
+| Update recipe | Update ingredients| Update directions|
 
 | ![](https://github.com/aza0092/Cooking-Recipe-Android-App/blob/master/media/new%20recipe%20new%20descri%20plus%20image.png) | ![](https://github.com/aza0092/Cooking-Recipe-Android-App/blob/master/media/new%20rec%20added.png) | ![](https://github.com/aza0092/Cooking-Recipe-Android-App/blob/master/media/new%20rec%20dir.png) |
 |:---:|:---:|:---:|
