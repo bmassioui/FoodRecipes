@@ -24,9 +24,9 @@ The app uttilizes Material Design.
 |:---:|:---:|
 | Sign In with Email | Sign In with Username |
 
-| ![](https://github.com/bouchaib-massioui/FoodRecipes/blob/main/for_readme/signup.jpg) |
-|:---:|
-| Sign Up |
+| ![](https://github.com/bouchaib-massioui/FoodRecipes/blob/main/for_readme/signup.jpg) | |
+|:---:||:---:|
+| Sign Up || |
 
 
 | ![](https://github.com/aza0092/Cooking-Recipe-Android-App/blob/master/media/add%20new%20rcipe%20or%20sign%20out.png) | ![](https://github.com/aza0092/Cooking-Recipe-Android-App/blob/master/media/edit-delete.png) |
