@@ -1,10 +1,6 @@
 # Recipe App - Android based App
 
-![main screen](https://github.com/aza0092/Cooking-Recipe-Android-App/blob/master/media/splash%20screen.png)
-
-## Live App
-
-Google Play Store link: https://goo.gl/8DKvWq
+![main screen](https://github.com/bouchaib-massioui/FoodRecipes/blob/main/for_readme/welcome.png)
 
 ## Description
 
