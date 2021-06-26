@@ -36,14 +36,10 @@ The app uttilizes Material Design.
 |:---:|:---:|
 | Application use a shared menu | Shared recipe menu |
 
-| ![](https://github.com/bouchaib-massioui/FoodRecipes/blob/main/for_readme/new_recipe.jpg) | ![](https://github.com/bouchaib-massioui/FoodRecipes/blob/main/for_readme/add_ingrediants.jpg) | ![](https://github.com/bouchaib-massioui/FoodRecipes/blob/main/for_readme/add_directions.jpg) | ![](https://github.com/bouchaib-massioui/FoodRecipes/blob/main/for_readme/add_ingrediants.jpg) | ![](https://github.com/bouchaib-massioui/FoodRecipes/blob/main/for_readme/recipe_added.jpg) |
+| ![](https://github.com/bouchaib-massioui/FoodRecipes/blob/main/for_readme/new_recipe.jpg) | ![](https://github.com/bouchaib-massioui/FoodRecipes/blob/main/for_readme/add_ingrediants.jpg) | ![](https://github.com/bouchaib-massioui/FoodRecipes/blob/main/for_readme/add_directions.jpg) | ![](https://github.com/bouchaib-massioui/FoodRecipes/blob/main/for_readme/recipe_added.jpg) |
 |:---:|:---:|:---:|:---:|
 | New recipe | Add ingredients| Add directions| New recipe has been added|
 
-| ![](https://github.com/bouchaib-massioui/FoodRecipes/blob/main/for_readme/new_recipe.jpg) | ![](https://github.com/bouchaib-massioui/FoodRecipes/blob/main/for_readme/add_ingrediants.jpg) | ![](https://github.com/bouchaib-massioui/FoodRecipes/blob/main/for_readme/add_directions.jpg) | ![](https://github.com/bouchaib-massioui/FoodRecipes/blob/main/for_readme/add_ingrediants.jpg) |
-|:---:|:---:|:---:||
-| Update recipe | Update ingredients| Update directions|
-
-| ![](https://github.com/aza0092/Cooking-Recipe-Android-App/blob/master/media/new%20recipe%20new%20descri%20plus%20image.png) | ![](https://github.com/aza0092/Cooking-Recipe-Android-App/blob/master/media/new%20rec%20added.png) | ![](https://github.com/aza0092/Cooking-Recipe-Android-App/blob/master/media/new%20rec%20dir.png) |
+| ![](https://github.com/bouchaib-massioui/FoodRecipes/blob/main/for_readme/update_recipe.jpg) | ![](https://github.com/bouchaib-massioui/FoodRecipes/blob/main/for_readme/update_ingrediants.jpg) | ![](https://github.com/bouchaib-massioui/FoodRecipes/blob/main/for_readme/update_directions.jpg) |
 |:---:|:---:|:---:|
-| Add new recipe| New recipe ingredients| New recipe directions|
+| Update recipe | Update ingredients| Update directions|
