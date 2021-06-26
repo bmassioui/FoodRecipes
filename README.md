@@ -1,6 +1,6 @@
 # Recipe App - Android based App
 
-![main screen](https://github.com/bouchaib-massioui/FoodRecipes/blob/main/for_readme/welcome.png)
+![main screen](https://github.com/bouchaib-massioui/FoodRecipes/blob/main/for_readme/food_recipes_icon.png)
 
 ## Description
 
@@ -16,9 +16,9 @@ The app uttilizes Material Design.
 - `utils` folder contains snippets of code for various functionalities.
 
 ## Images
-| ![](https://github.com/aza0092/Cooking-Recipe-Android-App/blob/master/media/splash%20screen.png) | ![](https://github.com/aza0092/Cooking-Recipe-Android-App/blob/master/media/main%20screen.png) |
+| ![](https://github.com/bouchaib-massioui/FoodRecipes/blob/main/for_readme/welcome.png) | ![](https://github.com/bouchaib-massioui/FoodRecipes/blob/main/for_readme/food_overview.jpg) |
 |:---:|:---:|
-| The splash screen  | main screen when the app is first opened |
+| Welcome page  | Main window - Show food list |
 
 | ![](https://github.com/aza0092/Cooking-Recipe-Android-App/blob/master/media/invalid%20credentials.png) | ![](https://github.com/aza0092/Cooking-Recipe-Android-App/blob/master/media/new%20acc.png) |
 |:---:|:---:|
