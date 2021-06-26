@@ -20,9 +20,9 @@ The app uttilizes Material Design.
 |:---:|:---:|
 | Welcome page  | Main window - Show food list |
 
-| ![](https://github.com/aza0092/Cooking-Recipe-Android-App/blob/master/media/invalid%20credentials.png) | ![](https://github.com/aza0092/Cooking-Recipe-Android-App/blob/master/media/new%20acc.png) |
-|:---:|:---:|
-| The app has functionality to check for invalid credentials | Create new account screen |
+| ![](https://github.com/bouchaib-massioui/FoodRecipes/blob/main/for_readme/signin_with_email.jpg) | ![](https://github.com/bouchaib-massioui/FoodRecipes/blob/main/for_readme/signin_with_username.jpg) |
+|![](https://github.com/bouchaib-massioui/FoodRecipes/blob/main/for_readme/signup.jpg)|:---:|
+| Sign In with Email | Sign In with Username | Sign Up |
 
 | ![](https://github.com/aza0092/Cooking-Recipe-Android-App/blob/master/media/recipes.png) |
 |:---:|
