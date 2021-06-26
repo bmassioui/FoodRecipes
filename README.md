@@ -36,7 +36,7 @@ The app uttilizes Material Design.
 |:---:|:---:|
 | Application use a shared menu | Shared recipe menu |
 
-| ![](https://github.com/bouchaib-massioui/FoodRecipes/blob/main/for_readme/new_recipe.jpg) | ![](https://github.com/bouchaib-massioui/FoodRecipes/blob/main/for_readme/add_ingrediants.jpg) | ![](https://github.com/bouchaib-massioui/FoodRecipes/blob/main/for_readme/add_directions.jpg) | ![](https://github.com/bouchaib-massioui/FoodRecipes/blob/main/for_readme/recipe_added.jpg) |
+| ![](https://github.com/bouchaib-massioui/FoodRecipes/blob/main/for_readme/new_recipe.jpg) | ![](https://github.com/bouchaib-massioui/FoodRecipes/blob/main/for_readme/add_ingredients.jpg) | ![](https://github.com/bouchaib-massioui/FoodRecipes/blob/main/for_readme/add_directions.jpg) | ![](https://github.com/bouchaib-massioui/FoodRecipes/blob/main/for_readme/recipe_added.jpg) |
 |:---:|:---:|:---:|:---:|
 | New recipe | Add ingredients| Add directions| New recipe has been added|
 
