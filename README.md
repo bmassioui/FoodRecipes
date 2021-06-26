@@ -9,11 +9,20 @@ The Recipe App is a native Android app made using Android Studio, Java - based. 
 The app uttilizes Material Design.
 
 ## Technical 
-- `adapters` folder contains adapters for: database - directions - ingredients - main page - recipes - viewPager for a single recipe (Ingrediants, Directions). 
-- `dao` folder contains data access objects for: directions - ingredients - SQLiteDatabaseHelper - recipes - users (id, password, name, email). 
-- `models` folder contains classes to define a: database - direction - ingredient - recipe - user.
-- `ui` folder contains the fragments for the different cuisines and the activities.
-- `utils` folder contains snippets of code for various functionalities.
+- `adapters` : folder contains adapters for: database - directions - ingredients - main page - recipes - viewPager for a single recipe (Ingrediants, Directions). 
+- `dao` : folder contains data access objects for: directions - ingredients - SQLiteDatabaseHelper - recipes - users (id, password, name, email). 
+- `models` : folder contains classes to define a: database - direction - ingredient - recipe - user.
+- `ui` : folder contains the fragments for the different cuisines and the activities.
+- `utils` : folder contains snippets of code for various functionalities.
+- `min-sdk` : FoodRecipes supports only the newest SDKs, starting from API Level **24** (*Android 7.0*) as **MinSdk**.
+
+## Installation 
+Recipe App has preconfigured user to grant endusers to browse the set of functionalities and utilities provided.
+To use default user, please follow the underneath steps: 
+- First of all, download the collection of used images from the follwoing url : [Here](https://github.com/bouchaib-massioui/FoodRecipes/tree/main/FoodRecipes/Images)
+- On the device, paste the downloded images on **/Pictures/FoodRecipes/Images/**
+- Run the Food Recipe App
+- SignIn either by username(**demo_user**) or email(**demo_user@foodrecipes.com**) and password(**pwd123**): 
 
 ## Images
 | ![](https://github.com/bouchaib-massioui/FoodRecipes/blob/main/for_readme/welcome.png) | ![](https://github.com/bouchaib-massioui/FoodRecipes/blob/main/for_readme/recipe_overview.jpg) |
