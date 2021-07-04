@@ -6,6 +6,8 @@
 
 The Recipe App is a native Android app made using Android Studio, Java - based. It is created so that users can create new account, sign in & out, make new recipes, edit/delete their info, and add pictures to them. 
 
+**Note** : *all data (recipes) is sharable between local accounts*, ex. if *demo_user* create new recipe then the others local accounts will be able to visualize the same data as *demo_user*.
+
 The app uttilizes Material Design.
 
 ## Technical 
