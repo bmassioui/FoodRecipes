@@ -9,6 +9,7 @@ import androidx.appcompat.widget.Toolbar;
 import com.google.android.material.textfield.TextInputLayout;
 import adapters.DatabaseAdapter;
 import models.User;
+import utils.UserPreferences;
 
 public class RegisterActivity extends ToolbarActivity {
 
@@ -57,7 +58,9 @@ public class RegisterActivity extends ToolbarActivity {
     private void registerUser(User user) {
         databaseAdapter.addNewUser(user);
 
-        Intent intent = new Intent(this, MainActivity.class);
+        UserPreferences.clear(this);
+
+        Intent intent = new Intent(this, LoginActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
     }

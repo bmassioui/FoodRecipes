@@ -67,7 +67,7 @@ public class DatabaseAdapter {
     public boolean signIn(String loginId, String pwd) {
         User currentUser = userDAO.getByEmail(loginId, pwd);
 
-        if(currentUser == null)
+        if (currentUser == null)
             currentUser = userDAO.getByUserName(loginId, pwd);
 
         UserPreferences.saveCurrentUser(mContext, currentUser);
